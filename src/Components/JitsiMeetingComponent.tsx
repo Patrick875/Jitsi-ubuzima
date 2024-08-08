@@ -21,12 +21,9 @@ function JitsiMeetingComponent() {
 		return () => {
 			window.removeEventListener('resize', handleResize)
 		}
-	})
-
+	}, [dimensions])
 	if (!isReady) return <div className='min-h-[100vh] w-full flex justify-center items-center'><p className='text-xl font-bold'>Loading ....</p></div>
-
 	return (
-
 		<JitsiMeeting
 			domain={domain}
 			roomName="MyCustomRoomName"
@@ -52,7 +49,7 @@ function JitsiMeetingComponent() {
 			onReadyToClose={() => {
 				window.history.go(-1);
 			}}
-			lang="en" // Set the language to English
+			lang="en"
 		/>
 	);
 }
